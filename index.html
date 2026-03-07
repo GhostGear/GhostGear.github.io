@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ghost Gear</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="solicia.css">
+</head>
+
+<body>
+
+<div id="loader" onclick="enterSite()">
+    <img src="loader.png" alt="Solicia Logo" class="pulsing-logo">
+</div>
+
+<nav class="sidenav">
+    <!-- Close button is no longer needed since it's hover-based, but you can keep it for layout if you like -->
+    <a href="index.html">
+        <img src="index.png" alt="Home" class="nav-icon">
+        <span class="nav-text">Home</span>
+    </a>
+    <a href="games.html">
+        <img src="loader.png" alt="Games" class="nav-icon">
+        <span class="nav-text">Games</span>
+    </a>
+    <a href="books.html">
+        <img src="book.png" alt="Books" class="nav-icon">
+        <span class="nav-text">Books</span>
+    </a>
+    <a href="contact.html">
+        <img src="contact.png" alt="Contact" class="nav-icon">
+        <span class="nav-text">Contact</span>
+    </a>
+</nav>
+
+<div id="wrapper">
+    <header>
+        <!-- Removed "Menu" trigger text completely -->
+        <h1>Ghost Gear</h1>
+    </header>
+
+    <div id="homehero"></div>
+
+    <main>
+        <h2>Open World Gaming Filled Fantasy Adventures!</h2>
+<p>
+Brought from the long time playing games of open world rpgs and strategy, we wish to bring you our dreams and passion into games that everyone can enjoy.
+</p>
+<ul>
+<li>We support future players</li>
+<li>Practice making quality games</li>
+<li>Currently looking for personnel for sound board and track</li>
+<li>Testers always welcomed</li> 
+
+</ul>
+    </main>
+
+    <footer>
+        Copyright &copy; 2015-2026 GhostGear
+        <br>
+        <cite>
+            <a href="mailto:callestduskmane@gmail.com">callestduskmane@gmail.com</a>
+        </cite>
+    </footer>
+</div>
+
+<script>
+    const audio = document.getElementById("bg-audio");
+
+    // Immediately set volume target
+    if (audio) {
+        audio.volume = 0.1;
+    }
+
+    // Loader logic
+    if (sessionStorage.getItem('hasEntered')) {
+        const loader = document.getElementById("loader");
+        if (loader) loader.style.display = 'none';
+    }
+
+    function enterSite() {
+        const loader = document.getElementById("loader");
+        if (loader) {
+            loader.classList.add("loader-hidden");
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
+        }
+        sessionStorage.setItem('hasEntered', 'true');
+
+        // UNLOCK AUDIO
+        if (audio) {
+            audio.muted = false; // Unmute first
+            audio.volume = 0.1;  // Set volume again to be sure
+            
+            // Play returns a promise; we use it to confirm success
+            let playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    console.log("Playback started successfully at 10% volume!");
+                }).catch(error => {
+                    console.log("Playback failed. Browser requires another click.");
+                });
+            }
+        }
+    }
+
+    // Global backup: If they click ANYWHERE else, try to play again
+    window.addEventListener('mousedown', () => {
+        if (audio && audio.paused) {
+            audio.muted = false;
+            audio.volume = 0.1;
+            audio.play();
+        }
+    }, { once: true });
+</script>
+
+</body>
+</html>

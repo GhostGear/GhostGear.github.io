@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ghost Gear | Games</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="solicia.css">
+</head>
+
+<body>
+
+<nav class="sidenav">
+    <a href="index.html">
+        <img src="index.png" alt="Home" class="nav-icon">
+        <span class="nav-text">Home</span>
+    </a>
+    <a href="games.html">
+        <img src="loader.png" alt="Games" class="nav-icon">
+        <span class="nav-text">Games</span>
+    </a>
+    <a href="books.html">
+        <img src="book.png" alt="Books" class="nav-icon">
+        <span class="nav-text">Books</span>
+    </a>
+    <a href="contact.html">
+        <img src="contact.png" alt="Contact" class="nav-icon">
+        <span class="nav-text">Contact</span>
+    </a>
+</nav>
+
+
+<div id="wrapper">
+
+    <header>
+        <h1>GhostGear</h1>
+    </header>
+
+    <main>
+    <table>
+        <thead>
+            <tr>
+                <th>Solicia</th>
+                <th>Duskmane Chronicles</th>
+                <th>Battle Buddies</th>
+            </tr>
+        </thead>
+        <tbody>
+	<tr>
+   		<td><img src="solicia-thumb.png" alt="Solicia Screenshot" class="table-img"></td>
+  		<td style="text-align: center; vertical-align: middle;"><img src="mini-thumb.png" width="50" height="50" alt="Mini Adventure"></td>
+  		<td><img src="battle-thumb.png" width="200" height="200" alt="Block-Brigade" class="table-img"></td>
+	</tr>
+	<tr>
+                <td><a href="Solicia.html">More Information</a></td>
+                <td><a href="minigame.html">More Information</a></td>
+                <td><a href="block-brigade.html">More Information</a></td>
+            </tr>
+            <tr>
+                <td>Release TBD</td>
+                <td>Release TBD</td>
+                <td>Release TBD</td>
+            </tr>
+        </tbody>
+    </table>
+    </main>
+
+    <footer>
+        Copyright &copy; 2015-2026 GhostGear
+        <br>
+        <cite>
+            <a href="mailto:callestduskmane@gmail.com">callestduskmane@gmail.com</a>
+        </cite>
+    </footer>
+</div>
+<script>
+function enterSite() {
+    document.getElementById("loader").classList.add("loader-hidden");
+}
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+</body>
+</html>

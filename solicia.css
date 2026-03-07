@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+}
+
+/* LOADER SECTION*/
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    cursor: pointer;
+    transition: opacity 1s ease-in-out;
+}
+
+.pulsing-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.enter-text {
+    color: #FFFFFF;
+    font-family: Georgia, serif;
+    letter-spacing: 5px;
+    margin-top: 30px;
+    text-shadow: 0 0 10px #1976D2;
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes pulse-glow {
+    0% { opacity: 0.4; filter: drop-shadow(0 0 5px #1976D2); transform: scale(0.95); }
+    50% { opacity: 1; filter: drop-shadow(0 0 20px #1976D2); transform: scale(1); }
+    100% { opacity: 0.4; filter: drop-shadow(0 0 5px #1976D2); transform: scale(0.95); }
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Navigation Bar */
+#wrapper {
+    margin-left: 100px; 
+    max-width: 1200px; 
+    width: calc(100% - 100px); 
+    background-color: #2C2C2C; 
+    box-shadow: 3px 3px 3px #111111;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    color: #E0E0E0;
+}
+
+
+.sidenav:hover ~ #wrapper,
+.sidenav:hover ~ .full-page-image {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+}
+
+.sidenav {
+  height: 100%;
+  width: 100px;
+  position: fixed;
+  z-index: 1000; 
+  top: 0;
+  left: 0;
+  background-color: #111; 
+  transition: width 0.3s ease;
+  padding-top: 60px;
+  overflow-x: hidden; 
+  white-space: nowrap;
+}
+
+.sidenav:hover {
+  width: 280px; 
+}
+
+.nav-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nav-text {
+  opacity: 0;
+  visibility: hidden;
+  margin-left: 20px;
+  color: #9400D3;
+  font-family: Georgia, serif;
+  transition: opacity 0.3s ease;
+}
+
+.sidenav a {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px 15px 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease; 
+}
+
+
+.sidenav a:hover {
+  background-color: rgba(138, 43, 226, 0.15);
+}
+
+.sidenav:hover .nav-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidenav a:hover .nav-text {
+  color: #8A2BE2;
+}
+
+.sidenav a:hover .nav-icon {
+  filter: drop-shadow(0 0 10px #8A2BE2);
+  transform: scale(1.1);
+}
+
+
+/* --- BODY & LAYOUT --- */
+body {
+    background-color: black;
+    background-image: url('backgroundwireglow.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.full-page-image {
+    margin-left: 100px;
+    width: calc(100% - 100px); 
+    height: auto;
+    display: block;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+header {
+    background-color: #002171;
+    color: #FFFFFF;
+    height: 60px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    margin-top: 0;
+}
+
+main {
+    padding: 20px;
+    display: block;
+    color: #CCCCCC;
+}
+
+h2 {
+    color: #1976D2;
+    font-family: Georgia, serif;
+    text-shadow: 1px 1px 1px #CCCCCC;
+}
+
+main ul {
+    list-style-type: none; /* Removes default dots for a cleaner look */
+    padding-left: 0;
+}
+
+main li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #CCCCCC; /* Dull grey to match your night view */
+}
+
+main li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #CCCCCC; /* Dull grey to match your night view */
+}
+
+main ul li a {
+    color: #FFD54F;           /* Soft Gold: high contrast on dull grey */
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px dashed #FFD54F; /* Subtle underline for "clickability" */
+    transition: all 0.3s ease;
+}
+
+/* Hover state to match your Violet/Night view theme */
+main ul li a:hover {
+    color: #BF00FF;           /* Electric Violet */
+    border-bottom: 1px solid #BF00FF;
+    text-shadow: 0 0 8px rgba(191, 0, 255, 0.4); /* Slight magical glow */
+}
+
+/* Optional: Style the "email:" label prefix */
+main ul li {
+    color: #CCCCCC;           /* Dull grey for labels */
+    margin-bottom: 8px;       /* Adds breathing room between lines */
+}
+
+footer {
+    font-size: 75%;
+    font-style: italic;
+    text-align: center;
+    padding: 2em;
+}
+
+footer cite a {
+    color: #FFD54F; /* Soft Gold - looks great on dark grey */
+    text-decoration: none;
+    font-style: normal; /* Removes the default italics from <cite> if you want */
+    transition: color 0.3s ease;
+}
+
+footer cite a:hover {
+    color: #8A2BE2; /* Violet */
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5); /* Subtle glow */
+    text-decoration: underline;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media screen and (max-width: 600px) {
+    .sidenav {
+        width: 0;
+        visibility: hidden;
+    }
+    
+    #wrapper, .full-page-image {
+        margin-left: 0;
+        width: 100%;
+    }
+
+
+    .sidenav:hover ~ #wrapper,
+    .sidenav:hover ~ .full-page-image {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+/* Table Style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #333333;
+    border: 2px solid #002171;
+    /* This ensures the table defaults to your main body font */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #555555;
+    color: #CCCCCC; 
+}
+
+th {
+    background-color: #002171;
+    color: white;
+    border-bottom: 2px solid #1976D2;
+    /* Matching your H1 and H2 font */
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1em;
+}
+
+td {
+    /* Explicitly matching the main body font and color */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #CCCCCC;
+}
+
+/* Ensuring links in the table inherit the same font but keep your link color */
+table td a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFD54F;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+table td a:hover {
+    color: #8A2BE2;
+    text-decoration: underline;
+}
+
+tr:hover td {
+    background-color: rgba(138, 43, 226, 0.1);
+    border-top: 1px solid #8A2BE2;
+    border-bottom: 1px solid #8A2BE2;
+}
+
+.table-img {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #444;
+    display: block;
+    margin: 0 auto; 
+}
+
+/* Contact */
+.contact-img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.4));
+    border: 1px solid #444;
+}
+
+#bg-audio {
+  display: none;
+}
+
+.large-remiclean {
+    display: block;
+    width: 100%;      /* This makes it fill the entire width of the box */
+    max-width: 1000px; /* Limits it so it doesn't get TOO huge on giant screens */
+    height: auto;      /* Keeps the proportions perfect */
+    margin: 20px auto; /* Centers it and adds space above/below */
+    border-radius: 8px; /* Optional: adds a nice soft corner to match your theme */
+}
